@@ -1,12 +1,12 @@
-#Ashley's Project Plan
+# Ashley's Project Plan
 ## What's the Story?: Linguistic Variation in Goodreads Reviews by Genre
 
 
-###Data
+### Data
 I plan to use a UCSD corpus of reviews from Goodreads’ website, which contains subsets of the data categorized by genre, and add some additional info. I would like to supplement this data by using Beautiful Soup to scrape Goodreads' website for public reviews in genres not covered in the existing dataset. This corpus contains mostly fiction genres, with its only nonfiction genre being history/biography, so I would like to collect reviews of books from genres such as General Nonfiction or Self-Help to get a better representation of nonfiction books. I would also like to annotate the reviews for sentiment. I plan to use primarily the text data of the reviews, but I will also collect information about the books themselves (such as title, author, and length) and the reviewers’ ratings to further categorize or perform mathematical calculations. The UCSD corpus has this information for its data, but in separate files from the reviews themselves, so I will have to combine that data. Finally, the UCSD corpus is extremely large, containing over 15.7 million reviews, so since I am fairly new to the data science world, I plan to take a smaller sample of the data to work with to start. If my original exploration is successful, I may try to work with the whole corpus. 
 
-###Analysis
+### Analysis
 My end goal is to see if there is a difference in the language patterns used in the reviews by readers of different book genres. I would analyze features such as type/token size and TTR to show vocabulary complexity, average sentence and overall review length to show syntactic complexity, and the most common words/n-grams used in each genre's reviews to get a sense of topic content. In addition, I will annotate the reviews for positive and negative sentiment to see which genres lean toward which sentiments, as well as if there is a change in linguistic features based on sentiment. Therefore, my broad hypothesis is that different genres' reviews will display different linguistic features. This involves smaller hypotheses I have about individual genres: for example, I predict that reviews of young adult books will on average be shorter and contain shorter sentences, potentially reflective of a younger audience than other genres. In order to test my broad hypothesis, in addition to just general data exploration, I plan to create a classifier that will ideally be able to identify which genre of book is being reviewed based off of the review's linguistic features. If the classifier is successful, that could imply that the language used in that genre's reviews is quite distinctive. I may also need to use some sort of trained classifier to annotate for sentiment given the large corpus size I am hoping to use.
 
-###Presentation
+### Presentation
 In order to keep things organized on my end, I will have a separate Jupyter Notebook file for each genre of Goodreads reviews that I analyze, but to make my final observations easier for a viewer to follow, I will create one final Jupyter Notebook file that shows a summary of my findings and a comparison of specific features across different genres. 
