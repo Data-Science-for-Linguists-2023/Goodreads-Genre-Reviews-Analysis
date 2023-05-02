@@ -14,11 +14,11 @@ Once the data was loaded, I began processing the data by merging the review data
 
 At first glance, the data appeared perfectly clean with no null values. However, further investigation proved that this was because missing values were often filled with [empty strings](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Exploration.ipynb#Formatting), so I had to filter the data for reviews with no text and remove them. There were also many different [langauge codes](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Exploration.ipynb#Language-Filtering), so I chose to restrict the data to only dialects of English to keep things consistent. I also noticed that some reviews looked like [nonsense](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Compiling_Data.ipynb#Nonsense-Text), like they were typed by just smashing a keyboard (unintentionally).
 
-![Nonsense Reviews Count](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/nonsense_counts.png)
+![Nonsense Reviews Count](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/images/nonsense_counts.png)
 
 However, attempts to filter them out took too many real reviews with them, and since they made up such a small portion of the data, I kept those reviews in the data. After all processing, I was left with a final dataset of 28,274 reviews from 8 different genres. 
 
-![Genre Review Counts](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/genre_counts.png)
+![Genre Review Counts]()
 
 ## Analysis
 
@@ -28,25 +28,25 @@ As shown in the graphs below, reviews of Romance books had the highest [median t
 
 Reviews of Children's Literature, Comics/Graphic Novels, and Poetry have some of the lowest median token counts per review. Children's Literature also has some of the shortest sentences. This could correlate to the actual length of the text being reviewed. Children's books, comics, and poems are all shorter pieces of writing whereas the other genres are likely novel-length, so the shorter reviews could just reflect a shorter original text to talk about. 
 
-![Token Count](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/tok_count_bar.png)
+![Token Count]()
 
-![Sentence Length](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/sentence_len_per_genre.png)
+![Sentence Length]()
 
 
 
 Additionally, high [average word length](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Average-Word-Length) and [average k-band](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#K-Bands) can be indicators of a larger, more advanced vocabulary. Poetry and History/Biography reviews had some of the highest average word lengths. This is more evidence for nonfiction readers having a more advanced grasp of language, and it makes sense that readers of poetry would write with longer words as poetry often includes very decorative, expressive language. Along these lines, while the average k-band was fairly consistent across all genres, Poetry reviews had a slightly higher k-band than the rest. This indicates that Poetry reviewers are using slightly less common, potentially more advanced vocabulary. 
 
-![Word Length](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/word_len_per_genre.png)
+![Word Length]()
 
-![K-Band](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/mean_kband_per_genre.png)
+![K-Band]()
 
 Some other features I investigated were sentiment and adjective use. Children's Literature reviews were the most positive overall while Mystery/Thriller/Crime reviews were the most negative. However, since the sentiment score is based on the text itself, it's understandable that someone talking about crime would use more negative words that someone talking about a children's book despite their opinion of the book, so this should be taken with a grain of salt. 
 
-![](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/sentiment_score.png)
+![]()
 
 In terms of median number of adjectives used, there isn't a ton of variety. I was surprised that Poetry reviews used as few as they did (only a median of 4), but again, History/Biography reviews stand out as advanced by using a higher median number of adjectives per review (along with Romance). 
 
-![Adjective Count](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/adjs_per_genre.png)
+![Adjective Count]()
 
 I also chose to look at the specific adjectives used in addition to just the counts, which turned out to be very revealing. Here are some of the interesting adjectives that were some of the most significant features when I made a Multinomial Naive-Bayes classifier based on adjectives: 
 
@@ -68,7 +68,7 @@ I also chose to look at the specific adjectives used in addition to just the cou
 
 Some patterns are that Children's Literature, Comics/Graphic Novels, and Young Adult books are all described as short, which is interesting as many of those books are geared more towards younger audiences and therefore may genuinely be shorter. On the other hand, Poetry and Fantasy/Paranormal books are described as long. Poetry reviews use some interesting adjectives such as "free, " "powerful", and "personal", whereas other genres have a few adjectives that are very genre-specific ("historical", "comic", "sexy"). Finally, the only three genres without "bad" as a significant adjective were Children's Literature, History/Biography, and Poetry. 
 
-![Clustering](/Users/ashleyfeiler/Documents/data_science/datasci_repo/Goodreads-Genre-Reviews-Analysis/images/clustering.png)
+![Clustering]()
 
 ## Conclusions
 
