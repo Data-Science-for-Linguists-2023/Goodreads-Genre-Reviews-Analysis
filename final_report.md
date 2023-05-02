@@ -44,41 +44,43 @@ Some other features I investigated were sentiment and adjective use. Children's 
 
 ![Sentiment Score](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/images/sentiment_score.png)
 
-In terms of median number of adjectives used, there isn't a ton of variety. I was surprised that Poetry reviews used as few as they did (only a median of 4), but again, History/Biography reviews stand out as advanced by using a higher median number of adjectives per review (along with Romance). 
+In terms of [median number of adjectives](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Adjectives-Count) used, there isn't a ton of variety. I was surprised that Poetry reviews used as few as they did (only a median of 4), but again, History/Biography reviews stand out as advanced by using a higher median number of adjectives per review (along with Romance). 
 
 ![Adjective Count](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/images/adjs_per_genre.png)
 
-I also chose to look at the specific adjectives used in addition to just the counts, which turned out to be very revealing. Here are some of the interesting adjectives that were some of the most significant features when I made a Multinomial Naive-Bayes classifier based on adjectives: 
+I also chose to look at the [specific adjectives](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Adjective-Only-TF-IDF) used in addition to just the counts, which turned out to be very revealing. Here are some of the interesting adjectives that were some of the most significant features when I made a Multinomial Naive-Bayes classifier based on adjectives: 
 
 **Children's Literature:** adorable, simple, sweet, young
 
-**Comics/Graphic Novels:** short, cute, comic, graphic, bad
+**Comics/Graphic Novels:** short, cute, comic, graphic
 
-**Fantasy/Paranormal:** long, strong, bad
+**Fantasy/Paranormal:** long, strong
 
 **History/Biography:** hard, true, real, historical
 
-**Mystery/Thriller/Crime:** short, dark, bad
+**Mystery/Thriller/Crime:** short, dark
 
 **Poetry:** free, long, poetic, powerful, personal, beautiful
 
-**Romance:** sexy, sweet, hot, bad
+**Romance:** sexy, sweet, hot
 
-**Young Adult:** short, happy, bad
+**Young Adult:** short, happy
 
-Some patterns are that Children's Literature, Comics/Graphic Novels, and Young Adult books are all described as short, which is interesting as many of those books are geared more towards younger audiences and therefore may genuinely be shorter. On the other hand, Poetry and Fantasy/Paranormal books are described as long. Poetry reviews use some interesting adjectives such as "free, " "powerful", and "personal", whereas other genres have a few adjectives that are very genre-specific ("historical", "comic", "sexy"). Finally, the only three genres without "bad" as a significant adjective were Children's Literature, History/Biography, and Poetry. 
+Some patterns are that Children's Literature, Comics/Graphic Novels, and Young Adult books are all described as short, which is interesting as many of those books are geared more towards younger audiences and therefore may genuinely be shorter. On the other hand, Poetry and Fantasy/Paranormal books are described as long. Poetry reviews use some interesting adjectives such as "free, " "powerful", and "personal", whereas other genres have a few adjectives that are very genre-specific ("historical", "comic", "sexy"). 
+
+I tried out a few additional machine learning methods to see if any combination of features was especially indicative of a certain genre. A [K-Nearest-Neighbors classifier](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Numerical-Features-(K-Nearest-Neighbors)) based on the numerical data performed poorly, while a [Multinomial Naive-Bayes](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Review-Text-TF-IDF) model based on the entire review text was the most accurate at about a 50% accuracy rate (so still not great). Most interesting was the unsupervised [clustering model](https://nbviewer.org/github/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb#Clustering), which was told to find 8 categories for 8 genres. While the graph shows a ton of overlap, the distinctive features for each topic showed that the model did pick up on some genre specifics. These included genres of Romance or Poetry (which referred to beauty and love), Children's Literature or Comics/Graphic Novels (which referred to art, illustrations, and kids), and Mystery/Thriller/Crime (which referred to plot twists and mysteries).
 
 ![Clustering](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/images/clustering.png)
 
 ## Conclusions
 
-Overall, it is clear that there are some linguistic differences between the reviews written for books of different genres, although they aren't wildly different enough to be 100% clear all the time. Based on both descriptive statistics and machine learning models, there appeared to be a few genres in particular that used a more distinctive vocabulary or had more distinctive linguistic features: Poetry, Children's Literature, and History/Biography. Poetry-related vocabulary was identified in clustering and in a high average word length and k-band. Children's Literature was characterized by short, positive reviews, and History/Biography reviews seemed to show an overall advanced grasp of language through both syntax and vocabulary. 
+Overall, it is clear that there are some linguistic differences between the reviews written for books of different genres, although they aren't wildly different enough to be 100% clear all the time. Reviews of different genres often use genre-specific adjectives, and there appear to be a few genres in particular that use a more distinctive vocabulary or had more distinctive linguistic features in their reviews: Poetry, Children's Literature, and History/Biography. Poetry-related vocabulary was identified in clustering and in a high average word length and k-band. Children's Literature was characterized by short, positive reviews, and History/Biography reviews seemed to show an overall advanced grasp of language through both syntax and vocabulary. 
 
 ## Setbacks and Reflections
 
 My biggest struggle throughout this project was simply getting the data to load. My original plan was to supplement my found data by scraping Goodreads for an additional few genres, but my computer simply didn't have the capacity to load this massive dataset. I experimented with different methods of loading this data such as using separate Jupyter Notebook files, using pandas' load_json chunksize parameter, and manually deleting objects and calling garbage collection, but nothing worked. I resorted to using command line to take samples of the reviews, which were small enough sample for my computer to handle. Given all of this, I ended up not adding any new scraped data as processing the existing data was already a huge task.
 
-After moving on to analysis, I started with a very broad question about linguistic differences between reviewers, so I looked at every single linguistic element I could think of. However, once I began digging in to the data, I began to get a sense for what features might be more meaningful than others and focused a bit more on those, such as investingating specifically adjectives since it seemed likely that people would describe different genres differently. Originally I used NLTK's POS tagger to identify adjectives, but eventually switched to spaCy for a slightly more advanced tool. While these hurdles did require a lot of problem-solving to overcome, these struggles were some of my best learning opportunities. 
+After moving on to analysis, I started with a very broad question about linguistic differences between reviewers, so I looked at every linguistic feature I could think of. However, I soon began to get a sense for what features might be more meaningful than others and focused more on those, such as investingating specifically adjectives since it seemed likely that people would describe different genres differently. Originally I used NLTK's POS tagger to identify adjectives, but eventually switched to spaCy for a slightly more advanced tool. While these hurdles did require a lot of problem-solving to overcome, these struggles were some of my best learning opportunities. 
 
 ## References
 
