@@ -16,11 +16,11 @@ I used the data from the [UCSD Book Graph corpus](https://sites.google.com/eng.u
 ### Directory
 
 - **[final_report.md](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/final_report.md)** - Gives an overall summary of the project, both its process and findings
-- [notebooks/] - Contains all Jupyter Notebook files 
-  - [Data_Exploration.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Exploration.ipynb) - Processes data from first 3/8 genres with detailed explanations
+- [Data_Exploration.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Exploration.ipynb) - Processes data from first 3/8 genres with detailed explanations
   - [data_prep/](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/tree/main/data_prep) - Contains additional Jupyter Notebooks that process data from remaining 5/8 genres
-  - [Compiling_Data.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Compiling_Data.ipynb) - Compiles individual genre data into one dataframe and adds linguistic components
-  - [Data_Analysis.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb) - Analyzes linguistic features of all genre data
+
+- [Compiling_Data.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Compiling_Data.ipynb) - Compiles individual genre data into one dataframe and adds linguistic components
+- Data_Analysis.ipynb](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/Data_Analysis.ipynb) - Analyzes linguistic features of all genre data
 - [data_samples/](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/tree/main/data_samples) - Includes small samples of original data and my final dataframe in accordance with Fair Use guidelines
 - [images/](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/tree/main/images) - Contains images of plots and graphs from analysis (.png)
 - [project_plan.md](https://github.com/Data-Science-for-Linguists-2023/Goodreads-Genre-Reviews-Analysis/blob/main/project_plan.md) - Describes original plan for project
